@@ -1,0 +1,24 @@
+\documentclass{standalone}
+
+\usepackage{imagestyle}
+
+\begin{document}
+
+\begin{tikzpicture}
+[white/.style={circle,draw=black,inner sep = 0mm, minimum size = 3mm},
+		black/.style={circle,draw=black,fill=black, inner sep= 0mm, minimum size = 3mm}]
+		
+		\node[white] (first) [label = below:{\scriptsize $1$}] {};		
+		\node[black] (second) [right= of first]  {}
+			edge (first);
+		\node[black] (third) [right = 1.5cm of second] {}
+			edge [dashed] (second);
+		\node[black] (fourth) [above right = 0.5cm of third] [label = above:{\scriptsize $n-1$}] {}
+			edge (third);
+		\node[black] (fifth) [below right = 0.5cm of third] [label = below:{\scriptsize $n$}] {}
+			edge (third);
+			
+\end{tikzpicture}
+
+
+\end{document}

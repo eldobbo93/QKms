@@ -1,0 +1,35 @@
+\documentclass{standalone}
+
+\usepackage{imagestyle}
+
+\begin{document}
+
+\begin{tikzpicture}
+[white/.style={circle,draw=black,inner sep = 0mm, minimum size = 3mm},
+		black/.style={circle,draw=black,fill=black, inner sep= 0mm, minimum size = 3mm}]
+		
+		\node[white] (first) [label = above:{\scriptsize $1$}] {};		
+		\node[white] (second) [right=of first] [label = above:{\scriptsize $2$}] {}
+			edge (first);
+		\node[white] (third) [right = 1.5cm of second] [label = above:{\scriptsize $m$}] {}
+			edge [dashed] (second);
+			
+		\node[black] (fourth) [below right = 0.2cm and 0.3cm of third] {}
+			edge (third);
+		\node[black] (fifth) [below = of fourth] {}
+			edge [dashed] (fourth);
+			
+		\node[white] (sixth) [below left = 0.2cm and 0.3cm of fifth] {}
+			edge (fifth)
+			edge	 [latex'-latex' , shorten <=3pt, shorten >=3pt, bend left=30, densely dotted] node[auto,swap] {} (third);
+		\node[white] (seventh) [left =1.5cm of sixth] [label = below:{\scriptsize $n-1$}] {}
+			edge [dashed] (sixth)
+			edge	 [latex'-latex' , shorten <=3pt, shorten >=3pt, bend left=30, densely dotted] node[auto,swap] {} (second);
+		\node[white] (last) [left = of seventh] [label = below:{\scriptsize $n$}] {}
+			edge (seventh)
+			edge	 [latex'-latex' ,shorten <=3pt, shorten >=3pt, bend left=30, densely dotted] node[auto,swap] {} (first);
+
+\end{tikzpicture}
+
+
+\end{document}

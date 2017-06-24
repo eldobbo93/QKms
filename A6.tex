@@ -1,0 +1,27 @@
+\documentclass{standalone}
+
+\usepackage{imagestyle}
+
+\begin{document}
+
+
+	\begin{tikzpicture}  %would be nice to do this fully for any number of dots
+		[white/.style={circle,draw=black,inner sep = 0mm, minimum size = 3mm},
+		black/.style={circle,draw=black,fill=black, inner sep= 0mm, minimum size = 3mm}]
+	
+		\node[white] (first) {};
+		\node[white] (second) [right=of first] {}
+			edge (first);
+		\node[black] (third) [right=of second] {}
+			edge (second);
+		\node[black] (fourth) [right=of third] {}
+			edge (third);		
+		\node[white] (fifth) [right=of fourth] {}
+			edge (fourth)
+			edge	 [latex'-latex' , shorten <=3pt, shorten >=3pt, bend right=30, densely dotted] node[auto,swap] {} (second); %probably change the arrow
+		\node[white] (last) [right=of fifth] {}
+			edge (fifth)
+			edge	 [latex'-latex' , shorten <=3pt, shorten >=3pt, bend right=30, densely dotted] node[auto,swap] {} (first); %probably change the arrow
+	\end{tikzpicture}
+
+\end{document}

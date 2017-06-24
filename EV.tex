@@ -1,0 +1,28 @@
+\documentclass{standalone}
+
+\usepackage{imagestyle}
+
+\begin{document}
+
+\begin{tikzpicture}
+[white/.style={circle,draw=black,inner sep = 0mm, minimum size = 3mm},
+		black/.style={circle,draw=black,fill=black, inner sep= 0mm, minimum size = 3mm}]
+		
+		\node[white] (first) {};		
+		\node[white] (second) [right= of first]  {}
+			edge (first);
+		\node[white] (third) [right = of second] {}
+			edge (second);
+		\node[white] (fourth) [right = of third] {}
+			edge (third);
+		\node[white] (fifth) [below = of fourth] {}
+			edge (fourth);
+		\node[white] (sixth) [right = of fourth] {}
+			edge (fourth);
+		\node[white] (seventh) [right = of sixth] {}
+			edge (sixth);
+		
+\end{tikzpicture}
+
+
+\end{document}

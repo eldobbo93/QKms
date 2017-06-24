@@ -1,0 +1,25 @@
+\documentclass{standalone}
+
+\usepackage{imagestyle}
+
+\begin{document}
+
+
+\tikzset{->-/.style={decoration={
+  markings,
+  mark=at position .5 with {\arrow[line width = 0.5pt]{angle 90}}},postaction={decorate}}}
+  
+  
+\begin{tikzpicture}
+[white/.style={circle,draw=black,inner sep = 0mm, minimum size =3mm},
+		black/.style={circle,draw=black,fill=black, inner sep= 0mm, minimum size = 3mm}]
+		
+		\node[white] (first)  [label = below:{\scriptsize $1$}] {};		
+		\node[white] (second) [right= 1.5cm of first] {}			
+			edge [dashed] (first);
+		\node[white] (third) [right = of second] [label = below:{\scriptsize $n$}] {}
+			edge [double equal sign distance, ->-] (second);
+		
+\end{tikzpicture}
+
+\end{document}

@@ -1,0 +1,28 @@
+\documentclass{standalone}
+
+\usepackage{imagestyle}
+
+\begin{document}
+
+
+\tikzset{-<-/.style={decoration={
+  markings,
+  mark=at position .5 with {\arrowreversed[line width = 0.5pt]{angle 90}}},postaction={decorate}}}
+  
+  
+\begin{tikzpicture}
+[white/.style={circle,draw=black,inner sep = 0mm, minimum size = 3mm},
+		black/.style={circle,draw=black,fill=black, inner sep= 0mm, minimum size = 3mm}]
+		
+		\node[white] (first) [label = below:{\scriptsize $1$}] {};
+		\node[white] (second) [right = 1.5cm of first] [label = below:{\scriptsize $2$}] {}
+			edge [dashed] (first);		
+		\node[black] (third) [right=of second] {}			
+			edge (second);
+		\node[black] (fourth) [right = 1.5cm of third] {}
+			edge [dashed] (third);
+		\node[black] (fifth) [right = of fourth] [label = below:{\scriptsize $n$}] {}
+			edge [double equal sign distance, -<-] (fourth);
+\end{tikzpicture}
+
+\end{document}

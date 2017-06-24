@@ -1,0 +1,24 @@
+\documentclass{standalone}
+
+\usepackage{imagestyle}
+
+\begin{document}
+
+\begin{tikzpicture}  %would be nice to do this fully for any number of dots
+		[white/.style={circle,draw=black,inner sep = 0mm, minimum size = 3mm},
+		black/.style={circle,draw=black,fill=black, inner sep= 0mm, minimum size = 3mm}]
+		
+		\node[white] (first) [label = below:{\scriptsize $1$}] {};		
+		\node[white] (third) [right= 0.8cm of first] [label = below:{\scriptsize $3$}] {}
+			edge	 [latex'-latex' , shorten <=3pt, shorten >=3pt, bend right=60, densely dotted] node[auto,swap] {$\tau$} (first); %probably change the arrow;
+
+		\begin{scope}[xshift = 3cm]
+		
+		\node[white] [label = below:{\scriptsize $2$}] {};
+		\end{scope}
+
+		
+\end{tikzpicture}
+
+
+\end{document}

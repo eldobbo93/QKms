@@ -1,0 +1,28 @@
+\documentclass{standalone}
+
+\usepackage{imagestyle}
+
+\begin{document}
+
+\begin{tikzpicture}
+[white/.style={circle,draw=black,inner sep = 0mm, minimum size = 3mm},
+		black/.style={circle,draw=black,fill=black, inner sep= 0mm, minimum size = 3mm}]
+		
+		\node[white] (first) {};		
+		\node[white] (second) [right= of first]  {}
+			edge (first);
+		\node[white] (third) [right = of second] {}
+			edge (second);
+		\node[white] (fourth) [right = of third] {}
+			edge (third)
+			edge	 [latex'-latex' , shorten <=3pt, shorten >=3pt, bend right=30, densely dotted] node[auto,swap] {} (second);
+		\node[white] (fifth) [below = of third] {}
+			edge (third);
+		\node[white] (sixth) [right = of fourth] {}
+			edge (fourth)
+			edge	 [latex'-latex' , shorten <=3pt, shorten >=3pt, bend right=30, densely dotted] node[auto,swap] {} (first);
+		
+\end{tikzpicture}
+
+
+\end{document}

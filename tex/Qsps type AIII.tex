@@ -1,0 +1,316 @@
+\documentclass[a4 paper, 10pt]{article}
+
+\usepackage{../mystyle}
+\usepackage{graphicx}
+
+
+
+\begin{document}
+\title{Quantum symmetric pairs of type $AIII/AIV$}
+\maketitle
+
+
+\subsubsection*{To do list}
+\begin{itemize}
+\item Write up calculations for Propositions
+\item Add in QSPs of type AII (and change title)
+
+\end{itemize}
+
+We aim to find a factorised expression for the quasi $K$-matrix $\Qkm$ for quantum symmetric pairs of type $AIII/AIV$. There are two different pictures, depending on whether there are any black nodes or not.
+
+
+\begin{center}
+\includegraphics{../img/AIII}
+\end{center}
+
+\noindent We first look at the rank one case which appears in type $AIV$. Consider the following diagram with $n$ nodes.
+
+\begin{center}
+\includegraphics{../img/AIII_rank_1_with_black_dots}
+%\input{../img/AIII_rank_1_with_black_dots}
+\end{center}
+
+
+\noindent We proceed in a similar manner to the previous cases. Observe that $w_X = s_2s_{3--2}s_{4--2} \dots s_{(n-1)..2}$ where $s_{i..j}$ denotes $s_is_{i \pm 1}s_{i \pm 2} \dots s_j$. We similarly have corresponding notation for $\T{i..j}$. Hence
+
+\begin{align}
+	\ir{1}{\Qkm} &= ( q - q^{-1} ) q^{-1}c_1s(n)\T{2..(n-1)}(E_n)\Qkm, \\
+	\ri{1}{\Qkm} &= ( q - q^{-1} ) \overline{c_1}s(n) \Qkm  \overline{\T{2..(n-1)}(E_n)} 
+\end{align} 
+
+\noindent with a symmetric result for $\ir{n}{\Qkm}$ and $\ri{n}{\Qkm}$.
+
+We now make the following claim.
+
+\begin{proposition} \label{Qkmrk1}
+The quasi K-matrix $\Qkm$ in the above case is given by 
+
+	\begin{equation} \label{eq: Qkm_AIII_rank1}
+		\Qkm = \big( \sum_{n_1 \geq 0} \dfrac{ (c_1s(n))^{n_1} }{ \{ n_1 \}! } \T{1..(n-1)}(E_n)^{n_1} \big) \big( \sum_{n_2 \geq 0 } \dfrac{ (c_ns(1))^{n_2} }{ \{ n_2 \}! } \T{n..2}(E_1)^{n_2} \big).
+	\end{equation}
+\end{proposition}
+
+\begin{proof}
+We proceed by direct computation by finding $_{1}r$ and $_{n}r$ of the expression above. In particular, we obtain the following.
+
+\begin{align}
+	&\ir{1}{\T{n..2}(E_1)^{n_2}} = {}\ir{n}{\T{1..(n-1)}(E_n)^{n_1}} = 0, \\
+	&\ir{1}{\T{1..(n-1)}(E_n)^{n_1}} = q^{-1}(q-q^{-1})\T{2..(n-1)}(E_n)\T{1..(n-1)}(E_n)^{n_1 - 1}, \\
+	&\ir{n}{\T{n..2}(E_1)^{n_2}} = q^{-1}(q-q^{-1})\T{(n-1)..2}(E_1)\T{n..2}(E_1)^{n_2 - 1}, \\
+	&\T{1..(n-1)}(E_n)\T{n..2}(E_1) = \T{n..2}(E_1)\T{1..(n-1)}(E_n).
+\end{align}
+
+\noindent The proof follows from these identities.
+\end{proof}
+
+
+\begin{remark}
+There is no need to calculate $r_{1}$ or $r_{3}$. This is because there is a $\mathbf{K}(q)$-algebra antiautomorphism $\sigma: U_{q}(\mathfrak{g}) \rightarrow U_{q}(\mathfrak{g})$ \cite[Lemma 4.6]{b-Jantzen96} that intertwines the skew derivations $r_{i}$ and ${}_{i}r$ \cite[Eqn 2.2]{a-BK15} .
+\end{remark}
+
+
+In the cases where there are no diagram automorphism and no black dots, we found the quasi $K$-matrix by calculating rank $1$ and $2$ cases and then we could generalise to higher rank using the braid relations satisfied by Lusztig automorphisms $T_i$. We aim for a similar method here. There are two rank $2$ cases to compute. We start by considering $A3$ with diagram automorphism $\tau$ and no black dots. 
+
+\begin{center}
+\includegraphics{../img/A3_with_tau}
+\end{center}
+
+\noindent In order to generalise the previous cases, we appeal to the theory of restricted root systems. In the cases when we have no diagram automorphism and no black dots, the restricted root system is precisely the original root system. We use the present case as a defining example as to how this generalisation works.
+
+
+The restricted root system $\Phi_{\text{res}}$ has associated to it a restricted Dynkin diagram, with nodes in correspondence to $\tau$-orbits of the diagram automorphism. Here, we see that there are $2$ nodes in our restricted Dynkin diagram, with associated roots $\alpha_1 + \alpha_3$ and $\alpha_2$. A quick check confirms that $\alpha_1 + \alpha_3$ is the short root, and hence our restricted root system is of type $B2$. 
+
+There is a Weyl group $W_{\text{res}}$ associated to $\Phi_{\text{res}}$ which embeds into the original Weyl group $W$. We denote the generators of $W$ by $s_i$ and the generators of $W_{\text{res}}$ by $\overline{s}_i$. This embedding sends $\overline{s}_1$ to $s_2$, and $\overline{s}_2$ to $s_1s_3$. 
+
+The restricted Weyl group $W_{\text{res}}$ has two expressions for the longest word, $\overline{s}_1\overline{s}_2\overline{s}_1\overline{s}_2$ and $\overline{s}_2\overline{s}_1\overline{s}_2\overline{s}_1$. Let $T_{\overline{1}} = T_{\overline{s}_1}$ and $T_{\overline{2}} = T_{\overline{s}_2}$. Let $\psi: U^+ \rightarrow U^+$ be the algebra automorphism such that
+
+\begin{equation}
+	\psi(E_i) = q^{a_i}c_i^{1/2}E_i,
+\end{equation}
+
+
+\noindent where $a_i = \frac{1}{4}(\alpha_i - \Theta(\alpha_i), \alpha_i)$. Using this, define $T_i^{\prime} = \psi \circ T_i \circ \psi^{-1}$ and similarly $T_w^{\prime}$ for $w \in W$. Further, let $\Qkm_2$ and $\Qkm_1$ denote the rank one quasi $K$-matrices corresponding to the subdiagrams.
+
+\begin{center}
+\includegraphics{../img/rank1subdiagram}
+\end{center}
+
+\noindent Recall that
+
+\begin{align}
+	\Qkm_1 &= \sum_{n \geq 0} \dfrac{(q-q^{-1})^n}{ \{2n \}!! } (q^2c_2)^n E_2^{2n},\\
+	\Qkm_2 &= \sum_{n \geq 0} \dfrac{(q-q^{-1})^n}{ \{n \}! } (E_1E_3)^n.	
+\end{align}
+
+\noindent In order to calculate the quasi $K$-matrix here, we need some relations, given by the following two lemmas. We omit the proof, but one proceeds via inductive arguments. 
+
+\begin{lemma}\label{A3comm}
+We have
+\begin{align*}
+&T_{13}(E_2)^{n} E_3 = q^{-n}E_3T_{13}(E_2)^n,\\
+&\big( T_1(E_2)T_3(E_2) \big)^nE_3 = E_3 \big( T_1(E_2)T_3(E_2) \big)^n - q\{ n \} \big( T_1(E_2)T_3(E_2) \big)^{n-1} T_3(E_2)T_{13}(E_2),\\
+&E_2^nE_3 = q^nE_3E_2^n - q\{ n \} E_2^{n-1}T_3(E_2). 
+\end{align*}
+\end{lemma}
+
+
+\begin{lemma}\label{A3r}
+We have
+\begin{align*}
+&\ir{2}{E_2^n} = \{ n \} E_2^{n-1},\\
+&\ir{2}{T_1(E_2)T_3(E_2)} = \ir{2}{T_{13}(E_2)} = \ir{2}{E_1E_3} = 0,\\
+&\ir{1}{E_2} = 0,\\
+&\ir{1}{ \big(E_1E_3 \big) ^n} = \{ n \} E_3 \big(E_1E_3 \big)^{n-1},\\
+&\ir{1}{T_{13}(E_2)^n } = q^{-1}(q-q^{-1}) \{n \} T_3(E_2)T_{13}(E_2)^{n-1},\\
+&\ir{1}{ \big( T_1(E_2)T_3(E_2) \big)^n} = q^{-1}(q-q^{-1}) \{ n \} E_2T_3(E_2) \big( T_1(E_2)T_3(E_2) \big)^{n-1}.
+\end{align*}
+\end{lemma}
+
+\noindent We make the following claims.
+
+\begin{proposition} \label{QkmA3}
+The partial quasi $K$-matrix obtained by taking the longest word $w = \os_{2}\os_{1}\os_{2}\os_{1}$ is an expression for the quasi $K$-matrix $\Qkm$.
+
+%There are two expressions for the quasi $K$-matrix $\Qkm$, given by 
+
+%\begin{align}
+%	\Qkm &= T_{\overline{2}}^{\prime}T_{\overline{1}}^{\prime}T_{\overline{2}}^{\prime}\big( \Qkm_1 \big) T_{\overline{2}}^{\prime}T_{\overline{1}}^{\prime}\big( \Qkm_2 \big) T_{\overline{2}}^{\prime}\big( \Qkm_1 \big) \Qkm_2,\\ 
+%		&= T_{\overline{1}}^{\prime}T_{\overline{2}}^{\prime}T_{\overline{1}}^{\prime}\big( \Qkm_2 \big) T_{\overline{1}}^{\prime}T_{\overline{2}}^{\prime}\big( \Qkm_1 \big) T_{\overline{1}}^{\prime}\big( \Qkm_2 \big) \Qkm_1.\\		
+%\end{align}
+\end{proposition}
+
+\begin{proof}
+In the case where we take $w = \os_{2}\os_{1}\os_{2}\os_{1}$, we have
+
+\begin{equation*}
+ \Qkm_w = \oTtwo{2}\oTtwo{1}\oTtwo{2}(\Qkm_1) \oTtwo{2}\oTtwo{1}(\Qkm_2) \oTtwo{2}(\Qkm_1) \Qkm_2.
+\end{equation*}
+
+To shorten notation, we write
+
+\begin{align*}
+\Y_1 &= \oTtwo{2}\oTtwo{1}\oTtwo{2}(\Qkm_1) = \Qkm_1, \\
+\Y_2 &= \oTtwo{2}\oTtwo{1}(\Qkm_2) = \sum_{n \geq 0} \dfrac{(q-q^{-1})^n}{ \{n \}! } (q^2c_2)^n (T_3(E_2)T_1(E_2))^n,\\
+\Y_3 &= \oTtwo{2}(\Qkm_1) = \sum_{n \geq 0} \dfrac{(q-q^{-1})^n}{ \{2n \}!!} (q^4c_2)^n T_{13}(E_2)^2n,\\
+\Y_4 &= \Qkm_2.  
+\end{align*}
+
+\noindent By the previous Lemmas, we see immediately that $\ir{2}{\Qkm_w} = (q-q^{-1})q^2c_2E_2\Qkm_w$. We want to now show that
+
+\begin{equation*}
+\ir{1}{\Qkm_w} = (q-q^{-1})E_3\Qkm_w.
+\end{equation*}
+
+\noindent For each $i = 1, 2, 3, 4$, let $\Y_i^{\prime} = K_1\Y_iK_1^{-1}$. Then
+
+\begin{equation*}
+\ir{1}{\Qkm_w} = \Y_1^{\prime} \ir{1}{\Y_2} \Y_3\Y_4 + \Y_1^{\prime}\Y_2^{\prime} \ir{1}{\Y_3} \Y_4 + \Y_1^{\prime}\Y_2^{\prime}\Y_3^{\prime} \ir{1}{\Y_4}.
+\end{equation*}
+
+\noindent Using Lemma \ref{A3r}, we may write down $\ir{1}{\Y_i}$ for $i = 2,3,4$.
+\begin{align*}
+\ir{1}{\Y_2}	&=	q^{-1}(q-q^{-1})^2(q^2c_2)E_2T_3(E_2)\Y_2,\\
+\ir{1}{\Y_3}	&=	q^{-1}(q-q^{-1})^2(q^4c_2)T_3(E_2)T_{13}(E_2)\Y_3,\\
+\ir{1}{\Y_4}&=	(q-q^{-1})E_3\Y_4.	
+\end{align*}
+ 
+\noindent Using Lemma \ref{A3comm}, we look at the term $\Y_1^{\prime}\Y_2^{\prime}\Y_3^{\prime} \ir{1}{\Y_4}$ in more detail. We have
+
+\begin{align*}
+\Y_3^{\prime}E_3	&=	E_3\Y_3, \\
+\Y_2^{\prime}E_3	&=	E_3\Y_2 - q(q-q^{-1})(q^2c_2)\Y_2^{\prime}T_3(E_2)T_{13}(E_2),\\
+\Y_1^{\prime}E_3	&=	E_3\Y_1 - q^{-1}(q-q^{-1})(q^2c_2)\Y_{1}^{\prime}E_2T_3(E_2).
+\end{align*}
+
+\noindent It follows that
+
+\begin{align*}
+\Y_1^{\prime}\Y_2^{\prime}\Y_3^{\prime} \ir{1}{\Y_4}	&=	(q-q^{-1})\Y_1^{\prime}\Y_2^{\prime}E_3\Y_3\Y_4,\\
+	&=	(q-q^{-1})\Y_1^{\prime} \big( E_3\Y_2 - q(q-q^{-1})(q^2c_2)\Y_2^{\prime}T_3(E_2)T_{13}(E_2) \big)\Y_3\Y_4,\\
+	&= (q-q^{-1})\big( E_3\Y_1 - q^{-1}(q-q^{-1})(q^2c_2)\Y_{1}^{\prime}E_2T_3(E_2) \big)\Y_2\Y_3\Y_4 -  \Y_1^{\prime}\Y_2^{\prime} \ir{1}{\Y_3}\Y_4, \\
+	&= (q-q^{-1})E_3\Qkm_w - \Y_1^{\prime}\ir{1}{\Y_2}\Y_3\Y_4 - \Y_1^{\prime}\Y_2^{\prime} \ir{1}{\Y_3}\Y_4. 
+\end{align*}
+
+\noindent Hence, it follows that $\ir{1}{\Qkm_w} = (q-q^{-1})E_3\Qkm_w$, as required.
+\end{proof}
+
+\begin{proposition}
+The partial quasi $K$-matrix obtained by taking the longest word $w^{\prime} = \os_1\os_2\os_1\os_2$ is an expression for quasi $K$-matrix, $\Qkm$.
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+\noindent It follows that since $\Qkm_w$ and $\Qkm_{w^{\prime}}$ are both expressions for $\Qkm$, then $\Qkm_w = \Qkm_{w^{\prime}}$.
+
+
+\noindent Consider now the diagram of type $A4$ with diagram automorphism $\tau$ and no black dots.
+
+\begin{center}
+ \includegraphics[scale=1]{../img/A4}
+\end{center}
+
+\noindent We approach this case in the same way as that for $A3$. We again obtain a restricted root system of type $B2$, but this time our Weyl group embedding $W_{\text{res}} \rightarrow W$ sends
+\begin{align*}
+\overline{s}_1 &\mapsto s_1s_4,\\
+\overline{s}_2 &\mapsto s_2s_3s_2.
+\end{align*}
+
+\noindent Let $\Qkm_1$ and $\Qkm_2$ denote the rank one quasi $K$-matrices corresponding to the subdiagrams.
+
+\begin{center}
+\includegraphics[scale=1]{../img/A1xA1} \qquad \includegraphics[scale=1]{../img/A2withtau}
+\end{center} 
+
+As before, we state the relations needed to calculate $\Qkm$ in the following two lemmas.
+
+\begin{lemma}
+We have
+\begin{align*}
+&	T_{23}(E_4)^nE_3		=	E_3T_{23}(E_4)^n,\\
+&	T_{32}(E_1)^nE_3		=	q^{-n}E_3T_{32}(E_1)^n,\\
+&	T_{32143}(E_2)^nE_3	=	E_3T_{32413}(E_2)^n - (q-q^{-1})\{n \}T_{32413}(E_2)^{n-1}T_3(E_4)T_{32}(E_1),\\
+&	T_{23142}(E_3)^nE_3	=	E_3T_{23142}(E_3)^n,\\
+&	E_4^nE_3				=	q^nE_3E_4^n - q\{n \}E_4^{n-1}T_3(E_4),\\
+&	E_1^nE_3				=	E_3E_1^n,\\
+&	T_{143}(E_2)^nE_4	=	q^{-n}E_4T_{143}(E_2)^n,\\
+&	T_{142}(E_3)^nE_4	=	q^{-n}E_4T_{142}(E_3)^n,\\
+&	T_{43}(E_2)^nE_4		=	q^{-n}E_4T_{43}(E_2)^n,\\
+&	T_{12}(E_3)^nE_4		=	q^nE_4T_{12}(E_3)^n - q\{n \}T_{12}(E_3)^{n-1}T_{124}(E_3),\\
+&	T_3(E_2)^nE_4		=	q^nE_4T_3(E_2)^n - q\{n \}T_3(E_2)^{n-1}T_{43}(E_2),\\
+&	T_2(E_3)^nE_4		=	q^nE_4T_2(E_3)^n - q\{n \}T_2(E_3)^{n-1}T_{42}(E_3),\\
+&	T_{42}(E_3)T_3(E_2)^n	=	q^{-n}T_3(E_2)^nT_{42}(E_3) + q^{1-n}(q-q^{-1})\{n \}T_3(E_2)^{n-1}T_2(E_3)T_{43}(E_2),\\
+&	T_{142}(E_3)^nT_{43}(E_2)	=	q^{-n}T_{43}(E_2)T_{142}(E_3)^n + (q-q^{-1})q^{1-n}\{n\}T_{43}(E_2)T_{124}(E_3)^n, \qquad \mbox{for $n \geq 1$,}\\
+\end{align*}
+\end{lemma}
+
+\begin{lemma}
+We have
+\begin{align*}
+&	\ir{2}{\Qkm_2}		=	(q-q^{-1})q^{-1}c_2E_3\Qkm_2,\\
+&	\ir{2}{T_{\overline{1}}^{\prime}T_{\overline{2}}^{\prime}(\Qkm_1)}	=	\ir{2}{T_{\overline{1}}^{\prime}(\Qkm_2)}	=	\ir{2}{\Qkm_1}	=	0,\\
+&	\ir{2}{T_{23142}(E_3)^n}	=	q^{-2}(q-q^{-1})^2\{n \}E_1T_3(E_4)T_{23142}(E_3)^{n-1},\\
+& 	\ir{2}{T_{32143}(E_2)^n}	=	\ir{2}{T_{32}(E_1)^n}	=	0,\\
+&	\ir{2}{T_{23}(E_4)^n}	=	q^{-1}(q-q^{-1})\{n \}T_3(E_4)T_{23}(E_4)^{n-1},\\
+&	\ir{1}{\Qkm_2}	=	0,\\
+&	\ir{1}{T_{43}(E_2)^n}	=	0,\\
+&	\ir{1}{T_{12}(E_3)^n}	=	q^{-1}(q-q^{-1})\{ n \} T_2(E_3)T_{12}(E_3)^{n-1},\\
+&	\ir{1}{T_{142}(E_3)^n}	=	q^{-1}(q-q^{-1})\{ n \} T_{42}(E_3)T_{142}(E_3)^{n-1},\\
+&	\ir{1}{T_{143}(E_2)^n}	=	q^{-1}(q-q^{-1})\{ n \} T_{43}(E_2)T_{143}(E_2)^{n-1},\\
+&	\ir{1}{\Qkm_1}	=	(q-q^{-1})E_4\Qkm_1,\\
+&	\ir{1}{T_{\overline{2}}^{\prime}T_{\overline{1}}^{\prime}(\Qkm_2)}	=	\ir{1}{T_{\overline{2}}^{\prime}(\Qkm_1)}	=	0.
+\end{align*}
+\end{lemma}
+\begin{proposition} \label{QkmA4}
+There are two expressions for the quasi $K$-matrix $\Qkm$, given by 
+
+\begin{align}
+	\Qkm &= T_{\overline{1}}^{\prime}T_{\overline{2}}^{\prime}T_{\overline{1}}^{\prime}\big( \Qkm_2 \big) T_{\overline{1}}^{\prime}T_{\overline{2}}^{\prime}\big( \Qkm_1 \big) T_{\overline{1}}^{\prime}\big( \Qkm_2 \big) \Qkm_1\\
+		&= T_{\overline{2}}^{\prime}T_{\overline{1}}^{\prime}T_{\overline{2}}^{\prime}\big( \Qkm_1 \big) T_{\overline{2}}^{\prime}T_{\overline{1}}^{\prime}\big( \Qkm_2 \big) T_{\overline{2}}^{\prime}\big( \Qkm_1 \big) \Qkm_2.
+\end{align}
+\end{proposition}
+
+\noindent Note that this looks the same as Proposition \ref{QkmA3} since the underlying restricted root systems are the same. However, the calculation here is much harder.
+
+Using Proposition \ref{Qkmrk1}, we may generalise the $A4$ case to the rank two case with node set $I = \{ 1, \dots, n \}$ and a set of black nodes $X = \{ 3, 4, \dots n-2 \}$.
+
+
+\begin{center}
+\includegraphics[scale=1]{../img/AIIIrank2}
+\end{center}
+
+\noindent For a subset $A \subseteq I$, let $w_A$ denote the longest word corresponding to the nodes in $A$. For example, $w_X$ denotes the longest word of the subgroup $W_X$ of $W$ corresponding to the black nodes. Then our Weyl group embedding sends
+
+\begin{align*}
+\overline{s}_1 &\mapsto s_1s_n\\
+\overline{s}_2 &\mapsto w_Xw_{ X \cup \{2,n-1\}}.
+\end{align*}
+
+\noindent In this case, $\overline{s}_2 = s_2s_3 \dots s_{n-1} \dots s_3s_2$, but we use the notation above as a means of seeing how further generalisations to other cases may work.
+
+
+Let $\Qkm_1$ and $\Qkm_2$ denote the rank one quasi $K$-matrices corresponding to the subdiagrams 
+
+\begin{center}
+\includegraphics[scale=1]{../img/A1xA1} \qquad \includegraphics[scale=1]{../img/AIII_rank_1_with_black_dots}
+\end{center}
+
+Our Proposition for the quasi $K$-matrix again looks the same.
+
+\begin{proposition} \label{QkmAIII}
+There are two expressions for the quasi $K$-matrix $\Qkm$, given by 
+
+\begin{align}
+	\Qkm &= T_{\overline{1}}^{\prime}T_{\overline{2}}^{\prime}T_{\overline{1}}^{\prime}\big( \Qkm_2 \big) T_{\overline{1}}^{\prime}T_{\overline{2}}^{\prime}\big( \Qkm_1 \big) T_{\overline{1}}^{\prime}\big( \Qkm_2 \big) \Qkm_1\\
+		&= T_{\overline{2}}^{\prime}T_{\overline{1}}^{\prime}T_{\overline{2}}^{\prime}\big( \Qkm_1 \big) T_{\overline{2}}^{\prime}T_{\overline{1}}^{\prime}\big( \Qkm_2 \big) T_{\overline{2}}^{\prime}\big( \Qkm_1 \big) \Qkm_2.
+\end{align}
+\end{proposition}
+
+\noindent The proof of this should be no harder than that of Proposition \ref{QkmA4}. In fact, similar relations should hold and hence the calculation will be exactly the same as that for $A4$. This still needs to be checked in detail.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{amsalpha}
+\bibliography{../litbank}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

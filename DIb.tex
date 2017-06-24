@@ -1,0 +1,22 @@
+\documentclass{standalone}
+
+\usepackage{imagestyle}
+
+\begin{document}
+
+\begin{tikzpicture}
+[white/.style={circle,draw=black,inner sep = 0mm, minimum size = 3mm},
+		black/.style={circle,draw=black,fill=black, inner sep= 0mm, minimum size = 3mm}]
+		
+		\node[white] (first) [label = below:{\scriptsize $1$}] {};		
+		\node[white] (second) [right= 1.5cm of first]  {}
+			edge [dashed] (first);
+		\node[white] (third) [above right = 0.5cm of second] [label = above:{\scriptsize $n-1$}] {}
+			edge (second);
+		\node[white] (fourth) [below right = 0.5cm of second] [label = below:{\scriptsize $n$}] {}
+			edge (second)
+			edge	 [latex'-latex' , shorten <=3pt, shorten >=3pt, bend right=60, densely dotted] node[auto,swap] {} (third);
+\end{tikzpicture}
+
+
+\end{document}

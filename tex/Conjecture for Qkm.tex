@@ -1,0 +1,207 @@
+\documentclass[a4 paper, 10pt]{article}
+
+\usepackage{../mystyle}
+\usepackage{graphicx}
+\usepackage{xargs}                      % Use more than one optional parameter in a new commands
+%\usepackage[pdftex,dvipsnames]{xcolor}  % Coloured text etc.
+
+\newcommand{\newnotation}{\textcolor{RoyalBlue}}
+
+
+\begin{document}
+\section{Factorisation of quasi $K$-matrices}
+\subsection{Rank of symmetric Lie algebras}
+\subsection{Partial quasi $K$-matrices}
+
+\noindent We formulate a conjecture for a factorisation of the quasi $K$-matrix \newnotation{$\Qkm$}. 
+
+
+Suppose we have \newnotation{$\tau$}-orbits $\textbf{o}_1, \dots, \textbf{o}_k$. Each orbit $\textbf{o}_i$ is of the form $\{i, \tau(i) \}$, where we assume that $i \leq \tau(i)$. 
+Given a $\tau$-orbit $\textbf{o}$ of a Satake diagram $D$, there is a notion of a \emph{subdiagram of real rank one} $D_{\textbf{o}}$, obtained by removing all other white nodes and their adjacent edges \cite[Definition 3.2]{a-BW16}. We modify this definition slightly by also removing black nodes if there is no path from the black node to one of the white nodes in $\textbf{o}$.
+
+
+As an example, take the Satake diagram of type $AIII$ with $6$ nodes 
+
+\begin{center}
+\includegraphics[scale=0.7]{../img/A6}
+\end{center}
+
+\noindent and the $\tau$-orbit $\textbf{o} = \{ 1,6 \}$. Then the subdiagram of real rank one we obtain is the following.
+
+\begin{center}
+\includegraphics[scale = 0.7]{../img/A1xA1} 
+\end{center}
+
+
+\noindent Similarly, for distinct orbits $\textbf{o}_{i_1}, \dots \textbf{o}_{i_m}$, we define a \emph{subdiagram of real rank $m$}, denoted $D_{\textbf{o}_{i_1}, \dots \textbf{o}_{i_m}}$.
+Given such a subdiagram of real rank $m$, let $\Qkm_{i_1, \dots i_m}$ denote the quasi $K$-matrix corresponding to this subdiagram.
+
+Given a subset $A$ of $I$, define $w_A \in W$ to be the longest word corresponding to $A$.
+For each orbit $\textbf{o}_i$, we then define an element $\overline{s}_i \in W$ by
+
+\begin{equation}
+	\overline{s}_i = w_{X}^{-1} w_{\textbf{o}_i \cup X}.
+\end{equation}
+
+\begin{proposition}
+The elements $\overline{s}_i$ generate a Weyl group $W_{\text{res}}$ which naturally embeds into $W$.
+\end{proposition}
+
+The proof is omitted, but we refer the reader to \cite{a-GI14}, where the proof is covered in detail when we have no black dots and a program for general proof is mentioned in Remark 8. 
+
+
+
+In the example above, we have $\overline{s}_1 = s_1s_6$ and $\overline{s}_2 = s_2s_3s_4s_5s_4s_3s_2$ and these two elements generate a Weyl group of type $B$. 
+
+
+With this notation and embedding, we can define automorphisms $T_{\overline{i}} = T_{\overline{s}_i}$ of $U_q(\mathfrak{g})$. These automorphisms satisfy braid relations, much in the same way as the Lusztig automorphisms $T_i$ satisfy braid relations.
+Further, we introduce a Hopf algebra automorphism $\Psi : U^{+} \rightarrow U^{+}$ by setting
+
+
+\begin{equation}
+	\Psi(E_i) = \begin{cases}	\big( q^{\frac{1}{2}(\alpha_i - \Theta(\alpha_i), \alpha_i)} c_is(\tau(i)) \big)^{\frac{1}{2}} E_i	& \mbox{for $i \in I \setminus X$,} \\
+								E_i																									& \mbox{for $i \in X$,}
+				\end{cases}
+\end{equation}
+\vspace{5pt}
+
+\noindent and we let $\oT{i} = \Psi \circ \oT{i} \circ \Psi^{-1}$ be the conjugation of $T_i$ by $\Psi$.
+
+\begin{definition} 
+For each reduced word $w = \overline{s}_{i_1}\overline{s}_{i_2} \dots \overline{s}_{i_j} \in W_{\text{res}}$, we define an element $\Qkm_w$ in the following way. 
+For $l = 1, \dots, j$, define
+
+\begin{equation} \label{eq:Qkmcomp}
+	\Qkm_w^{[l]} = T_{\overline{i}_1}^{\prime} \dots T_{\overline{i}_{l-1}}^{\prime}( \Qkm_{i_l} ).
+\end{equation}
+
+\vspace{5pt}
+
+\noindent When it is clear which word $w$ is being considered, we omit the $w$ and write $\Qkm^{[l]}$. Using this, the element $\Qkm_w$ is defined as
+		
+\begin{equation} \label{eq:Qkmw}
+	\Qkm_w = \Qkm^{[j]} \cdot \Qkm^{[j-1]} \cdot \cdots \cdot \Qkm^{[2]} \cdot \Qkm^{[1]}.
+\end{equation}
+
+\vspace{5pt} 
+
+\noindent We call such an element a \emph{partial quasi $K$-matrix}. 
+\end{definition}
+
+Note that if we have only two $\tau$-orbits $\textbf{o}$ and $\textbf{o}^{\prime}$, then $W_{\text{res}}$ is one of type $A1 \times A1, A2, B2$, or $G2$ and the only word $w \in W_{\text{res}}$ with a non-unique reduced expression is the longest word. In such a case, we have two distinct reduced expressions. 
+
+It is not yet clear that the partial quasi $K$-matrix is well-defined. As a first step towards this, we make the following conjecture.
+
+\begin{conjecture} \label{conj}
+If $W_{\text{res}}$ is of rank two, then $\Qkm_{w}$ is the quasi $K$-matrix, where $w$ is any reduced expression for the longest word in $W_{\text{res}}$.   
+\end{conjecture}
+
+\noindent In particular, we see that the partial quasi $K$-matrix is well defined whenever we have a rank two case. Using this, we can generalise to higher rank cases by the following Theorem. 
+
+\begin{theorem} \label{Qkmindep}
+Suppose that we have a Satake diagram $D$ of rank $n \geq 2$ such that all subdiagrams of real rank two satisfy Conjecture \ref{conj}. For $w \in W_{\text{res}},$ the partial quasi $K$-matrix $\Qkm_w$ is independent of the choice of reduced expression.
+\end{theorem}
+
+\begin{proof}
+Let $w = \overline{s}_{i_1} \dots \overline{s}_{i_k} \in W_{\text{res}}$ be a reduced word. Suppose there is a distinct reduced expression for the same word, $w^{\prime}$, which only differs from $w$ by a single relation. The following are the possible relations.
+\begin{align*}
+ \os_r\os_p &= \os_p\os_r \qquad \mbox{for $|p-r| > 1$},\\
+ \os_r\os_{r+1}\os_r &= \os_{r+1}\os_r\os_{r+1} \qquad \mbox{in type $A$},\\
+ (\os_r\os_{r+1})^2 &= (\os_{r+1}\os_{r})^2 \qquad \mbox{in type $B$},\\
+ (\os_r\os_{r+1})^3 &= (\os_{r+1}\os_r)^3 \qquad \mbox{in type $G$}.
+\end{align*}
+\noindent Since the same argument is used for all relations, we will only consider the second of these. 
+
+Suppose $r = i_l$ for some $l = 1, \dots k-2$. Then we have
+\begin{align*}
+	w &= \os_{i_1} \dots \os_{i_{l-1}} \big( \os_r\os_{r+1}\os_r \big) \os_{i_{l+3}} \dots \os_{i_k}, \\
+	w^{\prime} &= \os_{i_1} \dots \os_{i_{l-1}} \big(\os_{r+1}\os_r\os_{r+1} \big) \os_{i_{l+3}} \dots \os_{i_k}.
+\end{align*}
+
+\noindent We proceed by cases. For $j = 1, \dots l-1$, we have 
+\begin{align*}
+\Qkm_w^{[j]} = \oT{i_1} \dots \oT{i_{j-1}}(\Qkm_j) = \Qkm_{w^{\prime}}^{[j]}.
+\end{align*}
+
+\noindent For $j = l+3, \dots, k$, since the automorphisms $\oT{i}$ satisfy braid relations, we have
+\begin{align*}
+\Qkm_w^{[j]} &= \oT{i_1} \dots \oT{i_{l-1}} \big( \oTtwo{r}\oTtwo{r+1}\oTtwo{r} \big) \oT{i_{l+3}} \dots \oT{i_k}\\
+	&= \oT{i_1} \dots \oT{i_{l-1}} \big( \oTtwo{r+1}\oTtwo{r}\oTtwo{r+1} \big) \oT{i_{l+3}} \dots \oT{i_k} = \Qkm_{w^{\prime}}^{[j]}.
+\end{align*}
+
+\noindent Finally, by Conjecture \ref{conj}, we have
+\begin{align*}
+\Qkm_{w}^{[l]}\Qkm_{w}^{[l+1]}\Qkm_{w}^{[l+2]} &= \oT{i_1} \dots \oT{i_{l-1}} \big( \Qkm_r \oTtwo{r}(\Qkm_{r+1})\oTtwo{r}\oTtwo{r+1}(\Qkm_r) \big)\\
+	&= \oT{i_1} \dots \oT{i_{l-1}} \big( \Qkm_{r+1} \oTtwo{r+1}(\Qkm_{r})\oTtwo{r+1}\oTtwo{r}(\Qkm_{r+1}) \big) = \Qkm_{w^{\prime}}^{[l]}\Qkm_{w^{\prime}}^{[l+1]}\Qkm_{w^{\prime}}^{[l+2]}.
+\end{align*}
+\noindent Hence, we have $\Qkm_w = \Qkm_{w^\prime}$ as required.
+
+If $w$ and $w^\prime$ differ by more than one relation, then we find a sequence of reduced expressions  
+
+\begin{equation*}
+ w = w_1,\; w_2,\; \dots,\; w_m = w^{\prime}
+\end{equation*}
+
+\noindent such that for $i = 1, \dots m-1$, $w_i$ differs from $w_{i+1}$ by a single relation. In this way, we may apply the above argument to obtain $\Qkm_w = \Qkm_{w^\prime}$.
+\end{proof}
+
+
+\noindent As an immediate application to Theorem \ref{Qkmindep}, we obtain the following Corollary.
+
+
+\begin{corollary} \label{Qkm}
+If we take the longest word $w_0 \in W_{\text{res}}$, then $\Qkm_{w_0} = \Qkm$.
+\end{corollary}
+
+\begin{proof}
+
+Let $D$ denote the Satake diagram with nodes indexed by a set $I$. We want to show that
+
+\begin{equation*}
+	\ir{i}{\Qkm_{w_0}} = (q-q^{-1})q^{-(\Theta(\alpha_i),\alpha_i)}c_is(\tau(i))T_{w_X}(E_{\tau(i)})\Qkm_{w_0}
+\end{equation*}
+
+\noindent for each $i \in I$. By Theorem \ref{Qkmindep}, we may choose any reduced expression for $w_0 \in W_{\text{res}}$. So choose $w_0 = \overline{s}_{i_1}\overline{s}_{i_2} \dots \overline{s}_{i_j}$ such that $\textbf{o}_{i_j} = \{k, \tau(k) \}$ for some $k \in I \setminus X$, $i_1 \neq i_j$ and
+
+\begin{equation*}
+ \overline{s}_{i_1} \dots \overline{s}_{i_{j-1}}(\overline{\alpha}_{i_j}) = \overline{\alpha}_{i_j}.
+\end{equation*}
+
+\vspace{5pt}
+\noindent Such a condition holds since $W_{res}$ is a Weyl group. With this choice of reduced expression, we have
+
+\begin{equation*}
+\Qkm_{w_0} = \Qkm_{i_j}\Qkm^{[{j-1}]}\Qkm^{[{j-2}]} \dots \Qkm^{[1]}.
+\end{equation*}
+
+\vspace{5pt}
+\noindent Now, $\overline{s}_{i_j}w_0 = w_0\overline{s}_{w_0(\overline{\alpha}_{i_j})}$, hence for $l = 1, \dots, j-1$, we have \cite[Eqn. $(4)$]{b-Jantzen96}
+
+\begin{equation*}
+\ir{k}{\Qkm^{[l]}} = 0.
+\end{equation*}
+
+\vspace{5pt}
+\noindent By a rank one calculation, we have
+
+\begin{equation*}
+\ir{k}{\Qkm_{i_j}} = (q-q^{-1})q^{-(\Theta(\alpha_k), \alpha_k)}c_ks(\tau(k))T_{w_X}(E_{\tau(j)})\Qkm_{i_j}.
+\end{equation*}
+
+
+\noindent Hence we obtain
+
+\begin{equation*}
+\ir{k}{\Qkm_{w_0}} = (q-q^{-1})q^{-(\Theta(\alpha_k),\alpha_k)}c_ks(\tau(k))T_{w_X}(E_{\tau(j)})\Qkm_{w_0},
+\end{equation*}
+
+\vspace{5pt}
+\noindent as required. We obtain the correct expression for $\ir{k}{\Qkm_{w_0}}$ in the same way. Since the choice of $i_j$ was taken arbitrarily, the result holds for all $k \in I$.
+
+\end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{amsalpha}
+\bibliography{../litbank}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

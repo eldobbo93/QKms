@@ -1,0 +1,33 @@
+\documentclass{standalone}
+
+\usepackage{imagestyle}
+
+\begin{document}
+
+\begin{tikzpicture}
+[white/.style={circle,draw=black,inner sep = 0mm, minimum size = 3mm},
+		black/.style={circle,draw=black,fill=black, inner sep= 0mm, minimum size = 3mm}]
+		
+		\node[white] (first) [label = above:{\scriptsize $1$}] {};		
+		\node[white] (second) [right=of first] [label = above:{\scriptsize $2$}] {}
+			edge (first);
+		\node[white] (third) [right =1.5cm of second] [label = above:{\scriptsize $m$}] {}
+			edge [dashed] (second);
+			
+		\node[white] (fourth) [below right = 0.4cm and 0.4cm of third]  {}
+			edge (third);
+			
+		\node[white] (fifth) [below left = 0.4cm and 0.4cm of fourth] {}
+			edge (fourth)
+			edge	 [latex'-latex' , shorten <=3pt, shorten >=3pt, bend left=30, densely dotted] node[auto,swap] {} (third);
+		\node[white] (sixth) [left =1.5cm of fifth]  {}
+			edge [dashed] (fifth)
+			edge	 [latex'-latex' , shorten <=3pt, shorten >=3pt, bend left=30, densely dotted] node[auto,swap] {} (second);
+		\node[white] (seventh) [left = of sixth]  {}
+			edge (sixth)
+			edge	 [latex'-latex' , shorten <=3pt, shorten >=3pt, bend left=30, densely dotted] node[auto,swap] {} (first);
+
+\end{tikzpicture}
+
+
+\end{document}
